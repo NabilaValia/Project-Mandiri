@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nabila Valia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #111010;
+      --white:  #F7F4EF;
+      --grey:   #E8E4DC;
+      --mid:    #9A9590;
+      --accent: #E8500A;
+      --aclt:   #FDE8DC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 99;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem clamp(1.5rem, 6vw, 4.5rem);
+      mix-blend-mode: normal;
+    }
+    .nav-name {
+      font-size: .8rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+    .nav-right {
+      display: flex; gap: 2rem; align-items: center;
+    }
+    .nav-right a {
+      font-size: .72rem; font-weight: 500; color: var(--black);
+      text-decoration: none; letter-spacing: .04em;
+      transition: color .2s;
+    }
+    .nav-right a:hover { color: var(--accent); }
+    .nav-status {
+      font-size: .68rem; font-weight: 600;
+      background: var(--accent); color: #fff;
+      padding: .35rem 1rem; border-radius: 20px;
+      letter-spacing: .04em;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 clamp(1.5rem, 6vw, 4.5rem) clamp(3rem, 6vw, 4.5rem);
+      border-bottom: 1.5px solid var(--black);
+      position: relative;
+    }
+    .hero-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 6vw, 4.5rem) 0;
+    }
+    .hero-eyebrow {
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--mid);
+    }
+    .hero-year {
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .12em; color: var(--mid);
+    }
+    .hero-main { position: relative; }
+    .hero h1 {
+      font-size: clamp(3.2rem, 10vw, 9rem);
+      font-weight: 800;
+      line-height: .95;
+      letter-spacing: -.03em;
+      margin-bottom: 2.5rem;
+    }
+    .hero h1 .line2 {
+      display: block;
+      -webkit-text-stroke: 2px var(--black);
+      color: transparent;
+    }
+    .hero h1 .line3 {
+      display: block; color: var(--accent);
+    }
+    .hero-bottom {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .hero-desc {
+      font-size: clamp(.8rem, 1.4vw, .9rem);
+      font-weight: 400; color: var(--mid);
+      max-width: 380px; line-height: 1.8;
+    }
+    .hero-desc strong { color: var(--black); font-weight: 600; }
+    .hero-cta {
+      display: flex; gap: .75rem; flex-wrap: wrap;
+    }
+    .btn {
+      font-family: 'Poppins', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .85rem 1.8rem; text-decoration: none;
+      transition: all .2s; display: inline-block;
+    }
+    .btn-solid {
+      background: var(--black); color: var(--white); border: 1.5px solid var(--black);
+    }
+    .btn-solid:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-outline {
+      background: transparent; color: var(--black); border: 1.5px solid var(--black);
+    }
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+
+    /* ─── MARQUEE ─── */
+    .marquee-wrap {
+      overflow: hidden; border-bottom: 1.5px solid var(--black);
+      background: var(--accent); padding: .75rem 0;
+    }
+    .marquee-track {
+      display: flex; gap: 0;
+      animation: marquee 20s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    .marquee-item {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: #fff; padding: 0 2.5rem; white-space: nowrap;
+    }
+    .marquee-item::before {
+      content: '✦'; margin-right: 2.5rem; font-size: .5rem;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1.5px solid var(--black);
+    }
+    .about-left {
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4.5rem);
+      border-right: 1.5px solid var(--black);
+    }
+    .about-right {
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4.5rem);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .sec-tag {
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .sec-tag::before {
+      content: ''; width: 20px; height: 2px; background: var(--accent);
+    }
+    .about-left h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .about-left p {
+      font-size: .85rem; font-weight: 400;
+      color: #555; line-height: 1.85; margin-bottom: 1rem;
+    }
+    .about-left p strong { color: var(--black); font-weight: 600; }
+    .stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px;
+      border: 1.5px solid var(--black); background: var(--black);
+      flex: 1;
+    }
+    .stat-box {
+      background: var(--white); padding: 1.5rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .stat-box .n {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; color: var(--accent); line-height: 1;
+    }
+    .stat-box .l {
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .06em; color: var(--mid);
+      text-transform: uppercase; margin-top: .5rem;
+    }
+    .skills-list {
+      margin-top: 2rem;
+      display: flex; flex-wrap: wrap; gap: .5rem;
+    }
+    .s-tag {
+      font-size: .68rem; font-weight: 600;
+      padding: .4rem 1rem; border: 1.5px solid var(--black);
+      letter-spacing: .04em;
+    }
+    .s-tag.on { background: var(--black); color: var(--white); }
+
+    /* ─── PROJECTS ─── */
+    #projects { border-bottom: 1.5px solid var(--black); }
+    .proj-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 6vw, 4.5rem);
+      border-bottom: 1.5px solid var(--black);
+    }
+    .proj-header h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 700;
+    }
+    .proj-header a {
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none;
+    }
+    .proj-list { display: flex; flex-direction: column; }
+    .proj-row {
+      display: grid;
+      grid-template-columns: 3rem 1fr auto;
+      gap: 2rem; align-items: center;
+      padding: 1.8rem clamp(1.5rem, 6vw, 4.5rem);
+      border-bottom: 1px solid var(--grey);
+      transition: background .2s;
+      text-decoration: none; color: inherit;
+      cursor: pointer;
+    }
+    .proj-row:last-child { border-bottom: none; }
+    .proj-row:hover { background: var(--aclt); }
+    .proj-row:hover .proj-arrow { transform: translateX(4px); color: var(--accent); }
+    .proj-idx {
+      font-size: .72rem; font-weight: 700;
+      color: var(--mid); letter-spacing: .08em;
+    }
+    .proj-info h3 {
+      font-size: clamp(.9rem, 1.8vw, 1.1rem);
+      font-weight: 700; margin-bottom: .3rem;
+    }
+    .proj-info p {
+      font-size: .78rem; font-weight: 400;
+      color: var(--mid); line-height: 1.5;
+    }
+    .proj-meta {
+      display: flex; flex-direction: column; align-items: flex-end; gap: .5rem;
+    }
+    .proj-tags { display: flex; gap: .4rem; flex-wrap: wrap; justify-content: flex-end; }
+    .p-tag {
+      font-size: .6rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; padding: .25rem .7rem;
+      background: var(--grey);
+    }
+    .proj-arrow {
+      font-size: .85rem; font-weight: 700;
+      transition: all .2s;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .contact-left {
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4.5rem);
+      border-right: 1.5px solid var(--black);
+      background: var(--black); color: var(--white);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .contact-left h2 {
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      font-weight: 800; line-height: 1.15; margin-top: 1rem;
+    }
+    .contact-left h2 span { color: var(--accent); }
+    .contact-right {
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4.5rem);
+      display: flex; flex-direction: column; gap: 1.5rem; justify-content: center;
+    }
+    .c-link {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 1.5rem; border: 1.5px solid var(--black);
+      text-decoration: none; color: var(--black);
+      font-size: .8rem; font-weight: 600;
+      transition: all .2s;
+    }
+    .c-link:hover { background: var(--black); color: var(--white); }
+    .c-link span { font-size: .8rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem clamp(1.5rem, 6vw, 4.5rem);
+      border-top: 1.5px solid var(--black);
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--mid);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-right a { display: none; }
+      .hero h1 .line2 { -webkit-text-stroke-width: 1.5px; }
+      #about { grid-template-columns: 1fr; }
+      .about-left { border-right: none; border-bottom: 1.5px solid var(--black); }
+      #contact { grid-template-columns: 1fr; }
+      .contact-left { border-right: none; border-bottom: 1.5px solid var(--black); }
+      .proj-row { grid-template-columns: 2.5rem 1fr; }
+      .proj-meta { display: none; }
+      footer { flex-direction: column; gap: .4rem; text-align: center; }
+    }
+
+    /* ─── FADE IN ─── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Nabila Valia</div>
+  <div class="nav-right">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <span class="nav-status">Open to Intern</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <span class="hero-eyebrow">Frontend Developer · Jakarta</span>
+    <span class="hero-year">© 2026</span>
+  </div>
+
+  <div class="hero-main reveal">
+    <h1>
+      Building<br>
+      <span class="line2">the web</span>
+      <span class="line3">with code.</span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        <strong>Mahasiswa Sistem Informasi Bisnis</strong> semester 4 yang lagi serius belajar web development dari nol. Mulai dari HTML &amp; CSS, sekarang terus ngembangin skill ke JavaScript dan ekosistem modern.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-solid">Lihat Projects</a>
+        <a href="cv.pdf" class="btn btn-outline" download>Download CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">HTML & CSS</span>
+    <span class="marquee-item">JavaScript</span>
+    <span class="marquee-item">Responsive Design</span>
+    <span class="marquee-item">React</span>
+    <span class="marquee-item">Git & GitHub</span>
+    <span class="marquee-item">Figma</span>
+    <span class="marquee-item">SQL</span>
+    <span class="marquee-item">Tailwind CSS</span>
+    <span class="marquee-item">HTML & CSS</span>
+    <span class="marquee-item">JavaScript</span>
+    <span class="marquee-item">Responsive Design</span>
+    <span class="marquee-item">React</span>
+    <span class="marquee-item">Git & GitHub</span>
+    <span class="marquee-item">Figma</span>
+    <span class="marquee-item">SQL</span>
+    <span class="marquee-item">Tailwind CSS</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left reveal">
+    <div class="sec-tag">About me</div>
+    <h2>Saya Nabila,<br>bukan programmer<br>biasa.</h2>
+    <p>
+      Mahasiswa <strong>Sistem Informasi Bisnis</strong> yang punya perspektif unik — ngerti bisnis sekaligus ngerti teknologi. Buat saya, website bukan cuma soal tampilan, tapi soal <strong>dampaknya ke bisnis</strong>.
+    </p>
+    <p>
+      Saya mulai dari HTML &amp; CSS, dan terus belajar setiap hari karena saya genuinely excited sama dunia web. Sekarang aktif ngerjain personal projects sambil nunggu kesempatan magang.
+    </p>
+    <div class="skills-list">
+      <span class="s-tag on">HTML</span>
+      <span class="s-tag on">CSS</span>
+      <span class="s-tag">JavaScript</span>
+      <span class="s-tag">React</span>
+      <span class="s-tag">Tailwind</span>
+      <span class="s-tag">Figma</span>
+      <span class="s-tag">SQL</span>
+      <span class="s-tag on">Git</span>
+    </div>
+  </div>
+  <div class="about-right reveal" style="transition-delay:.1s">
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="n">4</div>
+        <div class="l">Semester kuliah</div>
+      </div>
+      <div class="stat-box">
+        <div class="n">4+</div>
+        <div class="l">Projects selesai</div>
+      </div>
+      <div class="stat-box">
+        <div class="n">8</div>
+        <div class="l">Skill aktif</div>
+      </div>
+      <div class="stat-box">
+        <div class="n">∞</div>
+        <div class="l">Semangat belajar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="proj-header reveal">
+    <h2>Projects</h2>
+    <a href="https://github.com/nabilavalia" target="_blank">Lihat semua di GitHub →</a>
+  </div>
+  <div class="proj-list">
+
+    <a class="proj-row reveal" href="#" target="_blank">
+      <span class="proj-idx">01</span>
+      <div class="proj-info">
+        <h3>UMKM Landing Page</h3>
+        <p>Landing page untuk toko kopi lokal — clean, responsif, dan conversion-friendly.</p>
+      </div>
+      <div class="proj-meta">
+        <div class="proj-tags">
+          <span class="p-tag">HTML</span><span class="p-tag">CSS</span>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="proj-row reveal" href="#" target="_blank" style="transition-delay:.07s">
+      <span class="proj-idx">02</span>
+      <div class="proj-info">
+        <h3>Sales Dashboard</h3>
+        <p>Visualisasi data penjualan bulanan dengan grafik interaktif dan ringkasan KPI.</p>
+      </div>
+      <div class="proj-meta">
+        <div class="proj-tags">
+          <span class="p-tag">JavaScript</span><span class="p-tag">Chart.js</span>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="proj-row reveal" href="#" target="_blank" style="transition-delay:.14s">
+      <span class="proj-idx">03</span>
+      <div class="proj-info">
+        <h3>Inventori App</h3>
+        <p>Aplikasi CRUD manajemen stok barang — tambah, edit, hapus data secara real-time.</p>
+      </div>
+      <div class="proj-meta">
+        <div class="proj-tags">
+          <span class="p-tag">React</span><span class="p-tag">API</span>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="proj-row reveal" href="#" target="_blank" style="transition-delay:.21s">
+      <span class="proj-idx">04</span>
+      <div class="proj-info">
+        <h3>Budget Tracker</h3>
+        <p>Pencatat keuangan pribadi — catat pemasukan &amp; pengeluaran, lihat ringkasan bulanan.</p>
+      </div>
+      <div class="proj-meta">
+        <div class="proj-tags">
+          <span class="p-tag">JavaScript</span><span class="p-tag">HTML</span>
+        </div>
+        <span class="proj-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left reveal">
+    <div class="sec-tag" style="color:#fff; --accent:#fff;">Hubungi saya</div>
+    <h2>Ada project<br>atau <span>peluang magang?</span><br>Yuk ngobrol.</h2>
+    <p style="font-size:.8rem;color:#aaa;margin-top:1.5rem;">Terbuka untuk internship, kolaborasi, atau sekadar diskusi soal web dev.</p>
+  </div>
+  <div class="contact-right reveal" style="transition-delay:.1s">
+    <a href="mailto:nabilavalia@email.com" class="c-link">
+      <span>nabilavalia@email.com</span>
+      <span>→</span>
+    </a>
+    <a href="https://linkedin.com/in/nabilavalia" class="c-link" target="_blank">
+      <span>LinkedIn</span>
+      <span>→</span>
+    </a>
+    <a href="https://github.com/nabilavalia" class="c-link" target="_blank">
+      <span>GitHub</span>
+      <span>→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span>Nabila Valia © 2026</span>
+  <span>HTML &amp; CSS</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
